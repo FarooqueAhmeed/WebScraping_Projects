@@ -17,9 +17,16 @@ def getLatestNews():
                 news_time_excerpt_parts = news.findAll('div', {'class': 'story__excerpt'})
                 for part in news_parts:
                     news_head = part.text
-                    news_excerpt = news_time_excerpt_parts[0].text
-                    print(news_head)
-                    print(news_excerpt)
+                    try:
+                        news_excerpt = news_time_excerpt_parts[0].text
+                        print(news_head)
+                        print(news_excerpt)
+
+                        with open("news.txt", "w+") as text_file:
+                            text_file.write(news_head + '\n\n'+ news_excerpt+"\n\n\n")
+                    except AttributeError:
+                        continue
+
 
                 # print news.find('h2').text
             except AttributeError:
