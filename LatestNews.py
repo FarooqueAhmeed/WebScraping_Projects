@@ -17,6 +17,8 @@ def getLatestNews():
                 news_time_excerpt_parts = news.findAll('div', {'class': 'story__excerpt'})
                 for part in news_parts:
                     news_head = part.text
+                    news_id = part['data-id']
+                    news_link = part.find('a', {'class':'story__link'})['href']
                     try:
                         if len(news_time_excerpt_parts) > 0:
                             news_excerpt = news_time_excerpt_parts[0].text
@@ -26,7 +28,7 @@ def getLatestNews():
                         print(news_excerpt)
 
                         with open("news.txt", "a") as text_file:
-                            text_file.write(news_head + '\n\n' + news_excerpt + "\n\n\n")
+                            text_file.write(news_id+'\n'+news_link+'\n'+news_head + '\n\n' + news_excerpt + "\n\n\n")
                     except AttributeError:
                         continue
 
