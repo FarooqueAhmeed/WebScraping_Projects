@@ -18,15 +18,17 @@ def getLatestNews():
                 for part in news_parts:
                     news_head = part.text
                     try:
-                        news_excerpt = news_time_excerpt_parts[0].text
+                        if len(news_time_excerpt_parts) > 0:
+                            news_excerpt = news_time_excerpt_parts[0].text
+                        else:
+                            print()
                         print(news_head)
                         print(news_excerpt)
 
-                        with open("news.txt", "w+") as text_file:
-                            text_file.write(news_head + '\n\n'+ news_excerpt+"\n\n\n")
+                        with open("news.txt", "a") as text_file:
+                            text_file.write(news_head + '\n\n' + news_excerpt + "\n\n\n")
                     except AttributeError:
                         continue
-
 
                 # print news.find('h2').text
             except AttributeError:
@@ -36,4 +38,4 @@ def getLatestNews():
 
 
 if __name__ == "__main__":
-     getLatestNews()
+    getLatestNews()
