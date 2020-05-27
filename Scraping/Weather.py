@@ -24,7 +24,7 @@ def getWeatherUpdate():
                     weather_details = json.loads(req.data)
                     for weather_detail in weather_details['consolidated_weather']:
                         print(weather_detail)
-                        print(weather_detail['min_temp'])
+                        #print(weather_detail['min_temp'])
 
                 else:
                     print("Error using API.")
