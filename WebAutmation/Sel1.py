@@ -22,8 +22,8 @@ browser.get("https://news.google.com")  '''
 username = browser.find_element_by_id("email")
 password = browser.find_element_by_id("pass")
 submit   = browser.find_element_by_id("loginbutton")
-username.send_keys("03088337062")
-password.send_keys("Fahmed")
+username.send_keys("***********")
+password.send_keys("**************")
 
 search = browser.find_element_by_id("pass")
 
